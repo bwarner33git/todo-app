@@ -5,12 +5,7 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (error, db) => {
     }
     console.log('Connected to mongodb server');
 
-    db.collection('Todos').find({_id: new ObjectID("5adcf0008fa09d87a4c87076")}).toArray().then((docs) => {
-        console.log('Todos');
-        console.log(JSON.stringify(docs, undefined, 2));
-    }).catch(err => {
-        console.log('Unable to fetch todos', err);
-    });
+    db.collection('Todos').insert({text: 'Eat lunch', completed: false});
 
   //  db.close();
 });
